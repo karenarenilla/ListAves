@@ -1,0 +1,9 @@
+<h2>My Aves</h2>
+<ul class = "aves">
+  <li *ngFor = "let ave of aves"
+    [class.selected] = "ave === selectedAve"
+    (click)="onSelect(ave)">
+    <span class="badge">{{ave.id}}</span> {{ave.nombre}}
+  </li>
+</ul>
+<app-ave-datail [ave] = "selectedAve"></app-ave-datail>
