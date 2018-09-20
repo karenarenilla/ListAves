@@ -26,7 +26,9 @@ export class AveDatailComponent implements OnInit {
   goBack(): void {
     this.ubicacion.back();
   }
-  ngOnInit(){
+  
+  ngOnInit(): void{
+    this.getAve();
   }
 
 }

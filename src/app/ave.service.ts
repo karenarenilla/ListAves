@@ -20,7 +20,7 @@ export class AveService {
     return of(AVES);
   }
   getAve(id: number): Observable<Ave> {
-    this.mensajeService.add('AveService: fetched traido de id=${id}');
+    this.mensajeService.add(`AveService: traido de aves id=${id}`);
     return of(AVES.find(ave => ave.id === id));
   }
 }

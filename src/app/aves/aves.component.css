@@ -8,8 +8,13 @@
     list-style-type: none;
     padding: 0;
     width: 15em;
+   
+  }
+  .aves a {
+    text-decoration:none
   }
   .aves li {
+    
     cursor: pointer;
     position: relative;
     left: 0;
