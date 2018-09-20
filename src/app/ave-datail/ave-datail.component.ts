@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Ave} from '../ave';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
+import {AveService} from '../ave.service';
 
 @Component({
   selector: 'app-ave-datail',
@@ -7,11 +10,23 @@ import {Ave} from '../ave';
   styleUrls: ['./ave-datail.component.css']
 })
 export class AveDatailComponent implements OnInit {
-@Input() ave: Ave;
+  ave: Ave;
 
-  constructor() { }
+  constructor(
+    private ruta: ActivatedRoute,
+    private aveService: AveService,
+    private ubicacion: Location
+  ) { }
 
-  ngOnInit() {
+  getHero(): void {
+    const id = +this.ruta.snapshot.paramMap.get('id');
+    this.aveService.getAve(id)
+      .subscribe(ave => this.ave = ave);
+  }
+  goBack(): void {
+    this.ubicacion.back();
+  }
+  ngOnInit(){
   }
 
 }

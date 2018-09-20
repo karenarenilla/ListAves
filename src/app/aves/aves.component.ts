@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Ave} from '../ave';
-import {AVES} from '../lista-aves';
+import { AveService } from '../ave.service';
 
 
 @Component({
@@ -10,15 +10,17 @@ import {AVES} from '../lista-aves';
 })
 export class AvesComponent implements OnInit {
 
-  aves = AVES;
-  selectedAve: Ave;
+  aves: Ave[];
 
-onSelect(selecAve: Ave): void {
-  this.selectedAve = selecAve;
-}
-  constructor() { }
+  constructor( private aveService: AveService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getAves();
+  }
+
+  
+  getAves(): void{
+    this.aveService.getAves().subscribe(aves => this.aves = aves);  
   }
 
 }

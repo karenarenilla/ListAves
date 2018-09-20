@@ -1,4 +1,4 @@
-<div *ngIf = "ave">
+<div *ngIf = "aves">
 
     <h2>{{ave.nombre | uppercase}} Details</h2>
     <div><span>id: </span>{{ave.id}}</div>
@@ -7,5 +7,5 @@
         <input [(ngModel)] = "ave.nombre" placeholder="nombre"/>
       </label>
     </div>
-  
+    <button (click) = "goBack">go Back</button>
   </div>
