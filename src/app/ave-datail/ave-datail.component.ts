@@ -18,7 +18,7 @@ export class AveDatailComponent implements OnInit {
     private ubicacion: Location
   ) { }
 
-  getHero(): void {
+  getAve(): void {
     const id = +this.ruta.snapshot.paramMap.get('id');
     this.aveService.getAve(id)
       .subscribe(ave => this.ave = ave);
